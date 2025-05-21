@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductDetail from '../components/ProductDetail';
 
-function ProductDetailPage({ addToCart, cartItems, updateQuantity }) {
+function ProductDetailPage({ addToCart, cartItems, updateQuantity,removeItem }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -18,7 +18,7 @@ function ProductDetailPage({ addToCart, cartItems, updateQuantity }) {
 
   return (
     <div className="container">
-      <ProductDetail product={product} addToCart={addToCart} cartItems={cartItems} updateQuantity={updateQuantity} />
+      <ProductDetail product={product} addToCart={addToCart} cartItems={cartItems} updateQuantity={updateQuantity} removeItem={removeItem}/>
     </div>
   );
 }

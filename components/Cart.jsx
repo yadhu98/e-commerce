@@ -1,6 +1,11 @@
 import React from 'react';
+import DeleteIcon from './DeleteIcon';
 
 function Cart({ cartItems, updateQuantity, removeItem }) {
+
+function totalPrice(price,quantity){
+    return Math.round(price * quantity)
+}
   return (
     <div className="p-8 max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
@@ -31,11 +36,12 @@ function Cart({ cartItems, updateQuantity, removeItem }) {
                   </button>
                 </div>
               </div>
+              <span className='text-lg font-semibold'>Total : ₹{item.price.toFixed(2)} X {item.quantity} = ₹{totalPrice(item.price.toFixed(2),item.quantity)} </span>
               <button
                 onClick={() => removeItem(item.id)}
                 className="ml-4 text-secondary hover:text-red-700"
               >
-                Delete
+                <DeleteIcon/>
               </button>
             </div>
           ))}
