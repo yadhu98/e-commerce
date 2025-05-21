@@ -6,12 +6,15 @@ function Cart({ cartItems, updateQuantity, removeItem }) {
 function totalPrice(price,quantity){
     return Math.round(price * quantity)
 }
+
+const totalAmount = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   return (
     <div className="p-8 max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <p className="text-gray-600">Your cart is empty.</p>
       ) : (
+        <>
         <div className="grid gap-4">
           {cartItems.map((item) => (
             <div key={item.id} className="flex items-center border p-4 rounded-lg bg-white">
@@ -46,6 +49,12 @@ function totalPrice(price,quantity){
             </div>
           ))}
         </div>
+        <div className="mt-6 text-right">
+        <h2 className="text-xl font-bold">
+          Total Amount: ₹{totalAmount.toFixed(2)}
+        </h2>
+      </div>
+      </>
       )}
     </div>
   );
