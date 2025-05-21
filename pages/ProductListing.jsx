@@ -78,7 +78,7 @@ function ProductListing({ addToCart, cartItems, updateQuantity }) {
           <p className="text-gray-600 mb-4 text-sm sm:text-base">
             {getDescription()}
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
